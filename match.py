@@ -1,10 +1,11 @@
-import json
+import json, requests
 from unicodedata import normalize
 """This code tells you if you can form a country name with the given characters."""
 
 countries_file = "countries.json"
 
-countries = json.load(open(countries_file))    #Load json to dict (https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+# countries = json.load(open(countries_file))    #Load json to dict (https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+countries = json.loads(requests.get("https://gist.githubusercontent.com/Yizack/bbfce31e0217a3689c8d961a356cb10d/raw/2e18fbfeb65d9c75f396a3a22934112b6ae2472c/countries.json").text)
 
 while True:
     #Get a set of the spanish standar names as a set of letters
